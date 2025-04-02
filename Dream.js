@@ -60,7 +60,9 @@ after each loop. Could use for in loop if I wanted to access each property.
 */
 let dateScenario = [
     {Category: "Adventure", Activity: "Outdoor Trail"},
-    {Category: "Romantic", Activity: "Picnic"}
+    {Category: "Romantic", Activity: "Picnic"},
+    {Category: "Sports", Activity: "Local Sports Game"}
+    
 ]
 for (let i = 0;  i < dateScenario.length; i++){
     console.log(`Date Idea that is ${dateScenario[i].Category} - Activity: ${dateScenario[i].Activity} `)
@@ -81,17 +83,15 @@ dateCompleted.push({Catergory: catResponse, Activity: actResponse});
 console.log(dateCompleted);
 
 /* Using Arrays
-I am having the user search an array to see if it is found in the date scenario. I am doing so by using 
-.find. I return the category and activity when it finds the match. 
-
-
+I am having the user search a previous array to see if it is found in the date scenario. I am doing so by using 
+.findindex. I rcan let the user know if its already an exisiting data set in my array. This also includes 
+a control structure and an operator. 
 */ 
-
 let checkAct = readlineSync.question("What activity do you want to search? ");
-let foundAct = dateScenario.find(scenario => scenario.Activity === "Picnic");
+let foundAct = dateScenario.findIndex(scenario => scenario.Activity === checkAct);
 
-if (foundAct){
-    console.log("This scenario is included in the list:", foundAct)
+if (foundAct != -1){
+    console.log("This scenario is included in the list. " );
 } else {
     console.log("This scenario is not in the list, you should add it!");
 }
